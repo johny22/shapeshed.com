@@ -30,6 +30,12 @@ The most common usage of `xargs` is to use it with the [`find`][4] command. This
 
     find /tmp -mtime +14 | xargs rm
 
+When the filenames contains spaces you should use -d option to modify the delimiter. 
+
+    ls
+    'one two three.txt' 'four five.txt'
+    find . -name '*.txt' | xargs -d '\n' rm
+
 ## xargs v exec {}
 
 The `find` command supports the `-exec` option that allows arbitrary commands to be performed on found files. The following are equivalent.
